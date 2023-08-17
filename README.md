@@ -19,5 +19,16 @@ This project will develop an e2e automated test flow for the Contact List applic
 2. Get User Profile
 3. Update User infomation
    
-## Project structure and components
-- Test Plan: 
+## Steps to configurate test
+- Write Test Plan/ Configuring the Test Plan
+- Create a Thread Group:
+  number of threads (users):
+  ramp-up
+  loop count
+- Create HTTP request Sampler with values for protocol, server name, Http request method and Path
+- Add Listeners to view the result of the test: View Results Tree, View Results in Table
+- Configuration
+- Post Processors
+- View result: Request and response
+The Sampler result tab contains the response code, response message and information about time, latency, response size in bytes — separately for the headers, the body and the error count.
+
