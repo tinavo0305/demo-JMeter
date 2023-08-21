@@ -52,7 +52,7 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
    Bearer ${user_token}
    <img width="1001" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/81be256f-a7f3-4674-8d9a-acf80342e44f">
 
-8.  Add _Post-Processors_ > _BeanShell preprocessor: input this script to pass the `user_token` value in the Authorization Header for **Get User Profile** request
+8.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for **Get User Profile** request
     <img width="901" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/49ce29c4-545d-4711-9310-0affa29134fd">
 
 9. Add **_Listeners_** to view the results of the test execution:
