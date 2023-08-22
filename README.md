@@ -34,29 +34,29 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
    
    <img width="872" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/c739f700-4834-472d-a934-c0eca2432344">
 
-5. Add _Configuration Elements_ > **_HTTP Header Manager_** to add header for the request:
+4. Add _Configuration Elements_ > **_HTTP Header Manager_** to add header for the request:
    - Content-Type and application/json
    - Accept and application/json
    <img width="1001" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/f1d44932-ff4b-4ac6-87ce-a786cdd320a4">
 
-7. Add _Post-Processors_ > **_JSON extractor_** under request to extract the access token in the response that could be used later in subsequent authorization requests
+5. Add _Post-Processors_ > **_JSON extractor_** under request to extract the access token in the response that could be used later in subsequent authorization requests
    - Names of created variables: the extracted value will be stored under the variable name `user_token`
    - JSON Path expression: `$.token` (1st level element from View result tree)
    - Match No.(0 of random): there is 1 token in JSON response
    - Default Value: in case `token` is not found, the `user_token` will have the value `TokenNotFound`
    <img width="822" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/8111b770-750e-46d8-964c-90b6f6c817a1">
    
-8. Add _Debug Sampler_ to check if the value is stored in variable `user_token`:
+6. Add _Debug Sampler_ to check if the value is stored in variable `user_token`:
    To troubleshoot script variable, we can add Debug Sampler, then run the script, open View Results Tree and view the value of access token is saved in `user_token` variable
    
-9. With requests requires an access token in the authorization (example: **Get User Profile**). Use _HTTP Header Manager_ to add the token as header
+7. With requests requires an access token in the authorization (example: **Get User Profile**). Use _HTTP Header Manager_ to add the token as header
    Bearer ${user_token}
    <img width="1001" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/81be256f-a7f3-4674-8d9a-acf80342e44f">
 
-10.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
+8.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
     <img width="901" alt="image" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/49ce29c4-545d-4711-9310-0affa29134fd">
 
-11. Add **_Listeners_** to view the results of the test execution:
+9. Add **_Listeners_** to view the results of the test execution:
     - `View Results Tree` to view Sampler results (contains the response code, response message and information about time, latency, response size in bytes), request, response data
     - `View Results in Table` to view latency, and response size in bytes
   
