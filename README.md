@@ -9,7 +9,7 @@ This project is used to demonstrate my expertise in **REST API Load Performance 
 - Use _Configuration Elements_ to set up defaults and variables that will be used in Samplers
 - Use _Post-Processors_ to execute actions after making a request
 - Run the test with GUI mode and in Command-line interface (CLI) 
-- Create an HTML report at the end of the test
+- Create HTML report at the end of the test
  
 ### Test scenarios:
 This project will develop an e2e automated test flow for the Contact List application (https://thinking-tester-contact-list.herokuapp.com/). The test flow contains the following test steps:
@@ -32,16 +32,17 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
     <img width="754" alt="Jmeter - Thread group" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/1edef595-b6dc-4f15-8453-a4836dda7d52">
 
 3. Create **_HTTP request Sampler_** to send requests to the web server with values for `Protocol`, `Server name`, `HTTP Request Method` and `Path`
+
    With requests that require `Body Data` (example: _Create user account_), use built-in JMeter random function to generate dynamic data while creating user
    
     <img width="872" alt="jmeter-sampler" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/b0d70ed5-227c-420a-9a1a-bc4093463799">
 
-4. Add _Configuration Elements_ > **_HTTP Header Manager_** to add header for the request:
+5. Add _Configuration Elements_ > **_HTTP Header Manager_** to add header for the request:
    - Content-Type and application/json
    - Accept and application/json
     <img width="1001" alt="Jmeter - HTTP Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/012b8a10-e396-4934-b136-99001e16c34f">
 
-5. Add _Post-Processors_ > **_JSON extractor_** under request to extract the access token in the response that could be used later in subsequent authorization requests
+6. Add _Post-Processors_ > **_JSON extractor_** under request to extract the access token in the response that could be used later in subsequent authorization requests
    - Names of created variables: the extracted value will be stored under the variable name `user_token`
    - JSON Path expression: `$.token` (1st level element from View result tree)
    - Match No.(0 of random): there is 1 token in JSON response
@@ -50,17 +51,17 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
    <img width="822" alt="Jmeter - JSON extractor" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/f0c81239-fb4c-4327-83e1-d77f4bf39ab5">
 
    
-6. Add **_Listeners_** to view the results of the test execution:
+7. Add **_Listeners_** to view the results of the test execution:
     - `View Results Tree` to view Sampler results (contains the response code, response message and information about time, latency, response size in bytes), request, response data
     - `View Results in Table` to view latency, response size in bytes, etc
    
-7. Add _Debug Sampler_ to check if the value is stored in variable `user_token`:
+8. Add _Debug Sampler_ to check if the value is stored in variable `user_token`:
    To troubleshoot script variable, we can add Debug Sampler, then run the script, open View Results Tree and view the value of access token is saved in `user_token` variable
    
-8. With requests require an access token in the authorization (example: G_et User Profile_). Use **_HTTP Header Manager_** to add `Bearer ${user_token}` as header 
+9. With requests require an access token in the authorization (example: G_et User Profile_). Use **_HTTP Header Manager_** to add `Bearer ${user_token}` as header 
    <img width="1001" alt="Jmeter - Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/3c3323f4-514a-449d-a10d-1f63bef1d369">
 
-9.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
+10.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
 
      <img width="901" alt="jmeter-beanshell" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/943c0bc2-844c-4ecd-b2f2-3bad6b005a13">
 
