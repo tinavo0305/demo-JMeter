@@ -34,12 +34,12 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
 3. Create **_HTTP request Sampler_** to send requests to the web server with values for `Protocol`, `Server name`, `HTTP Request Method` and `Path`
    With requests that require `Body Data` (example: _Create user account_), use built-in JMeter random function to generate dynamic data while creating user
    
- <img width="872" alt="jmeter-sampler" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/b0d70ed5-227c-420a-9a1a-bc4093463799">
+    <img width="872" alt="jmeter-sampler" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/b0d70ed5-227c-420a-9a1a-bc4093463799">
 
 4. Add _Configuration Elements_ > **_HTTP Header Manager_** to add header for the request:
    - Content-Type and application/json
    - Accept and application/json
- <img width="1001" alt="Jmeter - HTTP Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/012b8a10-e396-4934-b136-99001e16c34f">
+    <img width="1001" alt="Jmeter - HTTP Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/012b8a10-e396-4934-b136-99001e16c34f">
 
 5. Add _Post-Processors_ > **_JSON extractor_** under request to extract the access token in the response that could be used later in subsequent authorization requests
    - Names of created variables: the extracted value will be stored under the variable name `user_token`
@@ -58,10 +58,11 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
    To troubleshoot script variable, we can add Debug Sampler, then run the script, open View Results Tree and view the value of access token is saved in `user_token` variable
    
 8. With requests require an access token in the authorization (example: G_et User Profile_). Use **_HTTP Header Manager_** to add `Bearer ${user_token}` as header 
- <img width="1001" alt="Jmeter - Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/3c3323f4-514a-449d-a10d-1f63bef1d369">
+   <img width="1001" alt="Jmeter - Header manager" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/3c3323f4-514a-449d-a10d-1f63bef1d369">
 
 9.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
- <img width="901" alt="jmeter-beanshell" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/943c0bc2-844c-4ecd-b2f2-3bad6b005a13">
+
+   <img width="901" alt="jmeter-beanshell" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/943c0bc2-844c-4ecd-b2f2-3bad6b005a13">
 
 ## Run test with JMeter GUI mode
 1. Download JMeter (make sure that Java is already installed in your system)
