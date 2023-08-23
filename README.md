@@ -62,7 +62,7 @@ Please visit this [link](https://docs.google.com/spreadsheets/d/1xl55NZxQLTskoxS
 
 9.  Add _Post-Processors_ > **_BeanShell preprocessor_**: input this script to pass the `user_token` value in the Authorization Header for next request
 
-   <img width="901" alt="jmeter-beanshell" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/943c0bc2-844c-4ecd-b2f2-3bad6b005a13">
+     <img width="901" alt="jmeter-beanshell" src="https://github.com/tinavo0305/demo-JMeter/assets/70987579/943c0bc2-844c-4ecd-b2f2-3bad6b005a13">
 
 ## Run test with JMeter GUI mode
 1. Download JMeter (make sure that Java is already installed in your system)
